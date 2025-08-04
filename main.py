@@ -8,6 +8,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters import Command
 from dotenv import load_dotenv
+from keep_alive import keep_alive  # <-- добавлено
 
 load_dotenv()
 
@@ -69,4 +70,6 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
+    keep_alive()  # <-- запускаем Flask-сервер
     asyncio.run(main())
+
